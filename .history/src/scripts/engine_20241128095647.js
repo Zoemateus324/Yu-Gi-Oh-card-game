@@ -20,15 +20,6 @@ const state = {
     },
 };
 
-
-
-const playersSides = {
-    player1: "player-field-card",
-    computer: "computer-field-card",
-};
-
-
-
 const pathImages = ".src/assets/icons/";
 const cardData = [{
         id: 0,
@@ -49,31 +40,21 @@ const cardData = [{
     },
     {
         id: 2,
-        name: "Dark Magician",
+        name: "Blue eyes White Dragon",
         type: "Rock",
         img: `${pathImages}magician.png`,
-        WinOf: [0],
-        LoseOf: [1],
+        WinOf: [1],
+        LoseOf: [2],
     },
 
 
 
 ];
 
-async function drawCards(cardNumbers, fieldSide) {
-    for (let i = 0; i < cardNumbers; i++) {
-        const randomIdCard = await getRandomCardId();
-        const cardImage = await createCardImage(randomIdCard, fieldSide);
 
-        document.getElementById(fieldSide).appendChild(cardImage);
-
-
-    }
-}
 
 function init() {
-    drawCards(5, playersSides.player1);
-    drawCards(5, playersSides.computer);
+
 
 }
 
