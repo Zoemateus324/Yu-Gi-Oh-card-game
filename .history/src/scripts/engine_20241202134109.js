@@ -2,7 +2,6 @@ const state = {
     score: {
         playerScore: 0,
         computerScore: 0,
-
         scoreBox: document.getElementById('score_points'),
     },
     cardSprites: {
@@ -15,19 +14,14 @@ const state = {
         computer: document.getElementById('computer-field-card'),
     },
     actions: {
-
         button: document.getElementById('next-duel'),
     },
 };
 
-
-
-const playerSides = {
+const playerSide = {
     player1: "player-cards",
     computer: "computer-cards",
 };
-
-
 
 const pathImages = "./src/assets/icons/";
 const cardData = [{
@@ -38,7 +32,6 @@ const cardData = [{
         WinOf: [1],
         LoseOf: [0],
     },
-
     {
         id: 1,
         name: "Exodia",
@@ -55,9 +48,6 @@ const cardData = [{
         WinOf: [0],
         LoseOf: [1],
     },
-
-
-
 ];
 
 async function getRandomCardId() {
@@ -65,25 +55,22 @@ async function getRandomCardId() {
     return cardData[randomIndex].id;
 }
 
-async function createCardImage(IdCard, fieldSide) {
+async function createCardImage(randomId, fieldSide) {
     const cardImage = document.createElement("img");
     cardImage.setAttribute("height", "100px");
     cardImage.setAttribute("src", "./src/assets/icons/card-back.png");
-    cardImage.setAttribute("data-id", IdCard);
+    cardImage.setAttribute("data-id", randomId); // Corrigido aqui
     cardImage.classList.add("card");
 
-
-
-
-    if (fieldSide === playerSides.player1) {
-
+    if (fieldSide === playerSide.player1) {
         cardImage.addEventListener("click", () => {
             setCardsField(cardImage.getAttribute("data-id"));
         });
-        cardImage.addEventListener("mouseover", () => {
-            drawSelectCard(IdCard);
-        });
     }
+
+    cardImage.addEventListener("mouseover", () => {
+        drawSelectCard(randomId); // Corrigido aqui
+    });
 
     return cardImage;
 }
@@ -98,18 +85,17 @@ async function drawCards(cardNumbers, fieldSide) {
     for (let i = 0; i < cardNumbers; i++) {
         const randomIdCard = await getRandomCardId();
         const cardImage = await createCardImage(randomIdCard, fieldSide);
-
         document.getElementById(fieldSide).appendChild(cardImage);
-
-
     }
 }
 
-function init() {
-    drawCards(5, playerSides.player1);
-    drawCards(5, playerSides.computer);
-
+function setCardsField(cardId) {
+    console.log("Carta selecionada:", cardId); // Função de exemplo
 }
 
+function init() {
+    drawCards(5, playerSide.player1);
+    drawCards(5, playerSide.computer);
+}
 
 init();

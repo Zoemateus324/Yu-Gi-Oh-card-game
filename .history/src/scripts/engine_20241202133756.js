@@ -22,7 +22,7 @@ const state = {
 
 
 
-const playerSides = {
+const playerSide = {
     player1: "player-cards",
     computer: "computer-cards",
 };
@@ -75,16 +75,16 @@ async function createCardImage(IdCard, fieldSide) {
 
 
 
-    if (fieldSide === playerSides.player1) {
-
+    if (fieldSide === playerSide.player1) {
         cardImage.addEventListener("click", () => {
             setCardsField(cardImage.getAttribute("data-id"));
         });
-        cardImage.addEventListener("mouseover", () => {
-            drawSelectCard(IdCard);
-        });
     }
 
+
+    cardImage.addEventListener("mouseover", () => {
+        drawSelectCard(IdCard);
+    });
     return cardImage;
 }
 
@@ -106,8 +106,8 @@ async function drawCards(cardNumbers, fieldSide) {
 }
 
 function init() {
-    drawCards(5, playerSides.player1);
-    drawCards(5, playerSides.computer);
+    drawCards(5, playerSide.player1);
+    drawCards(5, playerSide.computer);
 
 }
 
