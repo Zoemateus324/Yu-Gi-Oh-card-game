@@ -33,7 +33,8 @@ const cardData = [{
         id: 0,
         name: "Blue Eyes White Dragon",
         type: "Paper",
-        img: `${pathImages}dragon.png`,
+        img: $ { pathImages }
+        dragon.png,
         winOf: [1],
         loseOf: [2],
     },
@@ -41,7 +42,8 @@ const cardData = [{
         id: 1,
         name: "Dark Magician",
         type: "Rock",
-        img: `${pathImages}magician.png`,
+        img: $ { pathImages }
+        magician.png,
         winOf: [2],
         loseOf: [0],
     },
@@ -49,7 +51,8 @@ const cardData = [{
         id: 2,
         name: "Exodia",
         type: "Scissors",
-        img: `${pathImages}exodia.png`,
+        img: $ { pathImages }
+        exodia.png,
         winOf: [0],
         loseOf: [1],
     },
@@ -128,7 +131,7 @@ async function resetDuel() {
 }
 
 async function updateScore() {
-    state.score.scoreBox.innerText = `Win: ${state.score.playerScore} | Lose: ${state.score.computerScore}`;
+    state.score.scoreBox.innerText = Win: $ { state.score.playerScore } | Lose: $ { state.score.computerScore };
 }
 
 async function drawButton(result) {
@@ -168,7 +171,7 @@ async function drawSelectedCard(cardId) {
 
     state.cardSprites.avatar.src = selectedCard.img;
     state.cardSprites.name.innerText = selectedCard.name;
-    state.cardSprites.type.innerText = `Attribute: ${selectedCard.type}`;
+    state.cardSprites.type.innerText = Attribute: $ { selectedCard.type };
 }
 
 async function getRandomCard() {
@@ -177,7 +180,7 @@ async function getRandomCard() {
 }
 
 async function playAudio(status) {
-    const audio = new Audio(`./src/assets/audios/${status}.wav`);
+    const audio = new Audio(. / src / assets / audios / $ { status }.wav);
     audio.play();
 }
 

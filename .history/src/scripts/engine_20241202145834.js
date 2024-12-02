@@ -63,7 +63,7 @@ function init() {
     drawCards(5, state.playerSides.player2);
 
     const bgm = document.getElementById("bgm")
-    bgm.play();
+    bgm.play
 }
 
 async function drawCards(cardsNumber, fieldSide) {

@@ -1,3 +1,22 @@
+const audioPlayer = document.getElementById("audio-player");
+
+audioPlayer.addEventListener("click", () => {
+    var bgm = document.getElementById("bgm");
+    state.audio.backgroundAudio = !state.audio.backgroundAudio;
+
+    if (state.audio.backgroundAudio) {
+        audioPlayer.classList.add("active");
+        audioPlayer.classList.remove("inactive");
+
+        bgm.play();
+    } else {
+        audioPlayer.classList.add("inactive");
+        audioPlayer.classList.remove("active");
+
+        bgm.pause();
+    }
+});
+
 const state = {
     audio: {
         backgroundAudio: false,
@@ -61,9 +80,6 @@ function init() {
 
     drawCards(5, state.playerSides.player1);
     drawCards(5, state.playerSides.player2);
-
-    const bgm = document.getElementById("bgm")
-    bgm.play();
 }
 
 async function drawCards(cardsNumber, fieldSide) {
@@ -137,10 +153,10 @@ async function drawButton(result) {
 }
 
 async function checkDuelResult(playerCard, computerCard) {
-    let duelResult = "draw";
+    let duelResult = "Empate";
 
     if (playerCard.winOf.includes(computerCard.id)) {
-        duelResult = "win";
+        duelResult = "Ganhou";
         state.score.playerScore++;
     }
 
