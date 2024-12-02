@@ -60,7 +60,7 @@ const cardData = [{
         id: 1,
         name: "Dark Magician",
         type: "Rock",
-        img: `${pathImages}magician.png`,
+        img: `${pathImages}magician2.png`,
         winOf: [2],
         loseOf: [0],
     },
