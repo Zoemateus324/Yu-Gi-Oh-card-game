@@ -60,27 +60,25 @@ const cardData = [{
 
 ];
 
-async function getRandomCardId() {
-    const randomIndex = Math.floor(Math.random() * cardData.length)
-    return cardData[randomIndex]
 
 
-    async function drawCards(cardNumbers, fieldSide) {
-        for (let i = 0; i < cardNumbers; i++) {
-            const randomIdCard = await getRandomCardId();
-            const cardImage = await createCardImage(randomIdCard, fieldSide);
 
-            document.getElementById(fieldSide).appendChild(cardImage);
+async function drawCards(cardNumbers, fieldSide) {
+    for (let i = 0; i < cardNumbers; i++) {
+        const randomIdCard = await getRandomCardId();
+        const cardImage = await createCardImage(randomIdCard, fieldSide);
 
+        document.getElementById(fieldSide).appendChild(cardImage);
 
-        }
-    }
-
-    function init() {
-        drawCards(5, playersSides.player1);
-        drawCards(5, playersSides.computer);
 
     }
+}
+
+function init() {
+    drawCards(5, playersSides.player1);
+    drawCards(5, playersSides.computer);
+
+}
 
 
-    init();
+init();
