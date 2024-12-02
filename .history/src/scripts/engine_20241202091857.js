@@ -68,24 +68,7 @@ async function getRandomCardId() {
 async function createCardImage(randomId, fieldSide) {
     const cardImage = document.createElement("img");
     cardImage.setAttribute("height", "100px");
-    cardImage.setAttribute("src", ".src/assets/icons/card-back.png");
-    cardImage.setAttribute("data-id", randomIdCard);
-    cardImage.classList.add("card");
-
-
-
-
-    if (fieldSide === playersSides.player1) {
-        cardImage.addEventListener("click", () => {
-            setCardsField(cardImage.getAttribute("data-id"));
-        });
-    }
-
-
-    cardImage.addEventListener("mouseover", () => {
-        drawSelectCard(IdCard);
-    });
-
+    cardImage.setAttribute("src", "100px");
 }
 
 async function drawCards(cardNumbers, fieldSide) {

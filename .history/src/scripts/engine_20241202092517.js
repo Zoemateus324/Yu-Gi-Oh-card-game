@@ -82,9 +82,9 @@ async function createCardImage(randomId, fieldSide) {
     }
 
 
-    cardImage.addEventListener("mouseover", () => {
-        drawSelectCard(IdCard);
-    });
+    cardImage.addEventListener("mouseover", ( => {
+        drawSelectCard(draw)
+    }))
 
 }
 
